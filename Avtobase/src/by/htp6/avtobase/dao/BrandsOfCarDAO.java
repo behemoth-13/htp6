@@ -11,4 +11,5 @@ public interface BrandsOfCarDAO {
 	List<BrandOfCar> getBrandsOfCars() throws SQLException, InterruptedException;
 	Map<Integer, BrandOfCar> getBrandsOfCarsById() throws SQLException, InterruptedException;
 	void deleteBrandOfCarById(int id) throws SQLException, InterruptedException;
+	boolean isBrandsOfCarsExist(String brandName) throws SQLException, InterruptedException;
 }

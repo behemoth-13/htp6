@@ -130,8 +130,8 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
     	String query = sqlManager.getProperty(SqlHelper.SQL_ADD_USER);
     	PreparedStatement ps = connection.prepareStatement(query);
     	
-    	ps.setInt(2, id);
-    	ps.setInt(1, Roles.BANNED_USER.getCodeRole());
+    	ps.setInt(1, id);
+    	ps.setInt(2, Roles.BANNED_USER.getCodeRole());
     	
     	ps.executeUpdate();
     	

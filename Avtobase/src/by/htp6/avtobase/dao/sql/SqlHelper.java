@@ -33,6 +33,7 @@ public class SqlHelper {
     public static final String SQL_ADD_BRAND_OF_CAR = "SQL_ADD_BRAND_OF_CAR";
     public static final String SQL_GET_BRANDS_OF_CAR = "SQL_GET_BRANDS_OF_CAR";
     public static final String SQL_DELETE_BRAND_OF_CAR_BY_ID = "SQL_DELETE_BRAND_OF_CAR";
+    public static final String SQL_GET_BRANDS_OF_CAR_BY_NAME = "SQL_GET_BRANDS_OF_CAR_BY_NAME";
     //CARS
     public static final String SQL_ADD_CAR = "SQL_ADD_CAR";
     public static final String SQL_DELETE_CAR_BY_STATE_NUMBER = "SQL_DELETE_CAR_BY_STATE_NUMBER";

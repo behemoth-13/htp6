@@ -25,11 +25,11 @@ public class DaoFactory implements SourceInit{
 	@Override
 	public void init() throws InitException {
 		try {
-			map.put(DaoName.USER, SqlUserDAO.getInstance());
-			map.put(DaoName.ORDER, SqlOrderDAO.getInstance());
-			map.put(DaoName.TRIP, SqlTripDAO.getInstance());
-			map.put(DaoName.BRANDS_OF_CAR, SqlBrandsOfCarDAO.getInstance());
-			map.put(DaoName.CAR, SqlCarDAO.getInstance());
+			map.put(DaoName.USER_DAO, SqlUserDAO.getInstance());
+			map.put(DaoName.ORDER_DAO, SqlOrderDAO.getInstance());
+			map.put(DaoName.TRIP_DAO, SqlTripDAO.getInstance());
+			map.put(DaoName.BRANDS_OF_CAR_DAO, SqlBrandsOfCarDAO.getInstance());
+			map.put(DaoName.CAR_DAO, SqlCarDAO.getInstance());
 		} catch (RuntimeException e) {
 			throw new InitException("ConnectionPool init not executed");
 		}
