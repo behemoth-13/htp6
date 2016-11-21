@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import by.htp6.avtobase.bean.User;
+import by.htp6.avtobase.constants.Roles;
 import by.htp6.avtobase.dao.SqlDAO;
 import by.htp6.avtobase.dao.UserDAO;
 import by.htp6.avtobase.dao.sql.SqlHelper;
@@ -122,4 +123,18 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
         }
         return user;
     }
+
+	@Override
+	public void banUserById(int id) throws SQLException, InterruptedException {
+		Connection connection = poolInstance.take();
+    	String query = sqlManager.getProperty(SqlHelper.SQL_ADD_USER);
+    	PreparedStatement ps = connection.prepareStatement(query);
+    	
+    	ps.setInt(2, id);
+    	ps.setInt(1, Roles.BANNED_USER.getCodeRole());
+    	
+    	ps.executeUpdate();
+    	
+    	poolInstance.addOpenConnection(connection);
+	}
 }

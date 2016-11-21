@@ -11,4 +11,5 @@ public interface UserDAO {
 	User getUser(String login, String password) throws SQLException, InterruptedException;
 	List<User> getUsers() throws SQLException, InterruptedException;
 	User getUserById(int id) throws SQLException, InterruptedException;
+	void banUserById(int id) throws SQLException, InterruptedException;
 }

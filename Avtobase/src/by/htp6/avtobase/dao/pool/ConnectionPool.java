@@ -14,10 +14,11 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
 import by.htp6.avtobase.exception.InitException;
+import by.htp6.avtobase.SourceInit;
 import by.htp6.avtobase.dao.util.ConfigParser;
 
-public class ConnectionPool implements Closeable{
-	private static final ConnectionPool instance = new ConnectionPool();
+public class ConnectionPool implements Closeable, SourceInit{
+	private final static  ConnectionPool instance = new ConnectionPool();
 	private final static String CONFIG_XML = "by.htp6.avtobase.dao.pool.config.config.xml";
 	
 	private BlockingQueue<Connection> freeConnections;
@@ -29,7 +30,8 @@ public class ConnectionPool implements Closeable{
 		return instance;
 	}
 	
-	public void init() {
+	@Override
+	public void init() throws InitException {
 		try{
 			String driverName, url , login, password;
 			int poolSize;
@@ -55,8 +57,18 @@ public class ConnectionPool implements Closeable{
 			}
 		} catch (SQLException | ParserConfigurationException | SAXException | IOException | 
 				InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-			throw new InitException("init not executed");
+			throw new InitException("ConnectionPool init not executed");
 		}
+	}
+	
+	@Override
+	public void destroy() {
+		try {
+			close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
 	
 	public Connection take() throws InterruptedException{
@@ -84,8 +96,7 @@ public class ConnectionPool implements Closeable{
 			try {
 				con.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw new IOException();
 			}
 		}
 		free.clear();
@@ -95,11 +106,11 @@ public class ConnectionPool implements Closeable{
 			try {
 				con.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw new IOException();
 			}
 		}
 		busy.clear();
 	}
+
 
 }
