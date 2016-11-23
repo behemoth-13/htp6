@@ -7,5 +7,5 @@ import by.htp6.avtobase.exception.OperationNotExecutedException;
 
 public interface BrandsOfCarService {
 	void addBrandOfCar(BrandOfCar brand) throws OperationNotExecutedException, IllegalArgumentException;
-	List<BrandOfCar> getBrandsOfCars();
+	List<BrandOfCar> getBrandsOfCars() throws OperationNotExecutedException;
 }

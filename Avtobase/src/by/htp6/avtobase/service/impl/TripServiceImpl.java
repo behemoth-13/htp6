@@ -3,6 +3,7 @@ package by.htp6.avtobase.service.impl;
 import java.util.List;
 
 import by.htp6.avtobase.bean.Trip;
+import by.htp6.avtobase.exception.OperationNotExecutedException;
 import by.htp6.avtobase.service.Service;
 import by.htp6.avtobase.service.TripService;
 
@@ -20,13 +21,13 @@ public class TripServiceImpl  extends Service implements TripService{
 	}
 	
 	@Override
-	public List<Trip> getTrips() {
+	public List<Trip> getTrips() throws OperationNotExecutedException, IllegalArgumentException{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void updateStatusTripByID(int orderId, int status) {
+	public void updateStatusTripByID(int orderId, int status) throws OperationNotExecutedException, IllegalArgumentException{
 		// TODO Auto-generated method stub
 		
 	}

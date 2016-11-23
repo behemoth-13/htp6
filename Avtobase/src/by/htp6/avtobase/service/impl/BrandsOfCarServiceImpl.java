@@ -31,7 +31,7 @@ public class BrandsOfCarServiceImpl  extends Service implements BrandsOfCarServi
 			if (!dao.isBrandsOfCarsExist(brandName)){
 				dao.addBrandOfCar(brand);
 			} else {
-				throw new IllegalArgumentException("BrandOfCar is already is exist");
+				throw new IllegalArgumentException("BrandOfCar is already exist");
 			}
 		} catch (SQLException | InterruptedException e) {
 			throw new OperationNotExecutedException("BrandsOfCarServiceImpl.addBrandOfCar not executed");
@@ -39,9 +39,13 @@ public class BrandsOfCarServiceImpl  extends Service implements BrandsOfCarServi
 	}
 
 	@Override
-	public List<BrandOfCar> getBrandsOfCars() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BrandOfCar> getBrandsOfCars() throws OperationNotExecutedException{
+		BrandsOfCarDAO dao = (BrandsOfCarDAO) daoFactory.getOperationDAO(DaoName.BRANDS_OF_CAR_DAO);
+		try {
+			return dao.getBrandsOfCars();
+		} catch (SQLException | InterruptedException e) {
+			throw new OperationNotExecutedException("BrandsOfCarServiceImpl.getBrandsOfCars not executed");
+		}
 	}
 
 }

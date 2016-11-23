@@ -31,6 +31,7 @@ public class SqlCarDAO extends SqlDAO implements CarDAO{
 		return instance;
 	}
 
+	@Override
 	public void addCar(Car car) throws SQLException, InterruptedException {
     	Connection connection = poolInstance.take();
     	String query = sqlManager.getProperty(SqlHelper.SQL_ADD_CAR);
@@ -46,7 +47,7 @@ public class SqlCarDAO extends SqlDAO implements CarDAO{
     	poolInstance.addOpenConnection(connection);
     }
 	
-	public void deleteCarByStateNumber(String stateNumber) throws SQLException, InterruptedException {
+	/*public void deleteCarByStateNumber(String stateNumber) throws SQLException, InterruptedException {
     	Connection connection = poolInstance.take();
     	String query = sqlManager.getProperty(SqlHelper.SQL_DELETE_CAR_BY_STATE_NUMBER);
     	PreparedStatement ps = connection.prepareStatement(query);
@@ -57,8 +58,9 @@ public class SqlCarDAO extends SqlDAO implements CarDAO{
     	ps.executeQuery();
     	
     	poolInstance.addOpenConnection(connection);
-    }
+    }*/
 	
+	@Override
 	public void updateCountOfKM(int driverId, int countOfKM) throws SQLException, InterruptedException {
 		Connection connection = poolInstance.take();
     	String query = sqlManager.getProperty(SqlHelper.SQL_UPDATE_COUNT_OF_KM_BY_DRIVER_ID);
@@ -72,6 +74,7 @@ public class SqlCarDAO extends SqlDAO implements CarDAO{
     	poolInstance.addOpenConnection(connection);
 	}
 	
+	@Override
 	public List<Car> getCars() throws SQLException, InterruptedException {
     	List<Car> list = new ArrayList<>();
     	Connection connection = poolInstance.take();
@@ -92,5 +95,23 @@ public class SqlCarDAO extends SqlDAO implements CarDAO{
     	}
     	poolInstance.addOpenConnection(connection);
     	return list;
+    }
+	
+	public Car getCarByStateNumber(String stateNumber) throws SQLException, InterruptedException {
+        Car car = null;
+        PreparedStatement ps = null;
+        String query =  sqlManager.getProperty(SqlHelper.SQL_GET_CAR_BY_STATE_NUMBER);
+        ps = poolInstance.take().prepareStatement(query);
+        ps.setString(1, stateNumber);
+        ResultSet result = ps.executeQuery();
+        if (result.next()) {
+            car = new Car();
+            car.setDriversUsersId(result.getInt(COLUMN_NAME_DRIVERS_USERS_ID));
+    		car.setBrandsOfCarsId(result.getInt(COLUMN_NAME_BRANDS_OF_CARS_ID));
+    		car.setStateNumber(result.getString(COLUMN_NAME_STATE_NUMBER));
+    		car.setStatus(result.getInt(COLUMN_NAME_STATUS));
+    		car.setCountOfKM(result.getInt(COLUMN_NAME_COUNT_OF_KM));
+        }
+        return car;
     }
 }

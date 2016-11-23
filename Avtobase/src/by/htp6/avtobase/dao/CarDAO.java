@@ -7,7 +7,7 @@ import by.htp6.avtobase.bean.Car;
 
 public interface CarDAO {
 	void addCar(Car car) throws SQLException, InterruptedException;
-	void deleteCarByStateNumber(String stateNumber) throws SQLException, InterruptedException;
+	//void deleteCarByStateNumber(String stateNumber) throws SQLException, InterruptedException;
 	void updateCountOfKM(int driverId, int countOfKM) throws SQLException, InterruptedException;
 	List<Car> getCars() throws SQLException, InterruptedException;
 }

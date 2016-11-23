@@ -36,10 +36,13 @@ public class SqlHelper {
     public static final String SQL_GET_BRANDS_OF_CAR_BY_NAME = "SQL_GET_BRANDS_OF_CAR_BY_NAME";
     //CARS
     public static final String SQL_ADD_CAR = "SQL_ADD_CAR";
-    public static final String SQL_DELETE_CAR_BY_STATE_NUMBER = "SQL_DELETE_CAR_BY_STATE_NUMBER";
+    //public static final String SQL_DELETE_CAR_BY_STATE_NUMBER = "SQL_DELETE_CAR_BY_STATE_NUMBER";
     public static final String SQL_UPDATE_COUNT_OF_KM_BY_DRIVER_ID = "SQL_UPDATE_COUNT_OF_KM_BY_DRIVER_ID";
     public static final String SQL_GET_CARS = "SQL_GET_CARS";
+    public static final String SQL_GET_CAR_BY_STATE_NUMBER = "SQL_GET_CAR_BY_STATE_NUMBER";
 
+    
+    
 	public static SqlHelper getInstance(){
 		if(instance == null) {
 			instance = new SqlHelper();

@@ -1,10 +1,15 @@
 package by.htp6.avtobase.service.impl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import by.htp6.avtobase.bean.Car;
+import by.htp6.avtobase.dao.CarDAO;
+import by.htp6.avtobase.dao.factory.DaoName;
+import by.htp6.avtobase.exception.OperationNotExecutedException;
 import by.htp6.avtobase.service.CarService;
 import by.htp6.avtobase.service.Service;
+import by.htp6.avtobase.service.validation.DataValidation;
 
 public class CarServiceImpl extends Service implements CarService{
 
@@ -20,26 +25,60 @@ public class CarServiceImpl extends Service implements CarService{
 	}
 	
 	@Override
-	public void addCar(Car car) {
+	public void addCar(Car car) throws OperationNotExecutedException, IllegalArgumentException{
+		CarDAO dao = (CarDAO) daoFactory.getOperationDAO(DaoName.CAR_DAO);
+		String message = validateCar(car);
+		if (message.length() != 0){
+			throw new IllegalArgumentException(message);
+		} else {
+			try {
+				dao.addCar(car);
+			} catch (SQLException | InterruptedException e) {
+				throw new OperationNotExecutedException("CarServiceImpl.addCar not executed");
+			}
+		}
+	}
+
+	/*@Override
+	public void deleteCarByStateNumber(String stateNumber) throws OperationNotExecutedException, IllegalArgumentException{
 		// TODO Auto-generated method stub
 		
+	}*/
+
+	@Override
+	public void updateCountOfKM(int driverId, int countOfKM) throws OperationNotExecutedException, IllegalArgumentException{
+		CarDAO dao = (CarDAO) daoFactory.getOperationDAO(DaoName.CAR_DAO);
+		if (!DataValidation.countOfKMPattern.matcher(String.valueOf(countOfKM)).matches()) {
+	            throw new IllegalArgumentException("countOfKM is not valid");
+	        }
+		try {
+			dao.updateCountOfKM(driverId, countOfKM);
+		} catch (SQLException | InterruptedException e) {
+			throw new OperationNotExecutedException("CarServiceImpl.updateCountOfKM not executed");
+		}
 	}
 
 	@Override
-	public void deleteCarByStateNumber(String stateNumber) {
-		// TODO Auto-generated method stub
-		
+	public List<Car> getCars() throws OperationNotExecutedException{
+		CarDAO dao = (CarDAO) daoFactory.getOperationDAO(DaoName.CAR_DAO);
+		try {
+			return dao.getCars();
+		} catch (SQLException | InterruptedException e) {
+			throw new OperationNotExecutedException("CarServiceImpl.getCars not executed");
+		}
 	}
-
-	@Override
-	public void updateCountOfKM(int driverId, int countOfKM) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<Car> getCars() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	private String validateCar(Car car) {
+		StringBuilder messageException = new StringBuilder();
+		if (!DataValidation.stateNumberPattern.matcher(car.getStateNumber()).matches()) {
+			messageException.append("stateNumber is not valid \n");
+        }
+		if (!DataValidation.statusCarPattern.matcher(String.valueOf(car.getStatus())).matches()) {
+			messageException.append("status is not valid \n");
+        }
+		if (!DataValidation.countOfKMPattern.matcher(String.valueOf(car.getCountOfKM())).matches()) {
+			messageException.append("countOfKM is not valid \n");
+        }
+		return messageException.toString();
 	}
 }
