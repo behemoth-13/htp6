@@ -8,10 +8,10 @@ public class Order implements Serializable {
 	
 	private int Id;
 	private int userId;
-	private int weight;
-	private int capacity;
-	private int distance;
-	private int statusOrder;
+	private int weight;   // 1 to 200
+	private int capacity; // 1  to 40
+	private int distance; // 20 to 10 000
+	private int statusOrder; // 0 to 4
 	private String timeStatusOrder;
 	private String creationTime;
 	

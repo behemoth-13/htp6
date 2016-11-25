@@ -10,6 +10,7 @@ import by.htp6.avtobase.dao.factory.DaoName;
 import by.htp6.avtobase.exception.OperationNotExecutedException;
 import by.htp6.avtobase.service.Service;
 import by.htp6.avtobase.service.UserService;
+import by.htp6.avtobase.service.validation.DataValidation;
 
 public class UserServiceImpl  extends Service implements UserService{
 
@@ -26,6 +27,12 @@ public class UserServiceImpl  extends Service implements UserService{
 	
 	@Override
 	public void registerUser(User user, String password) throws OperationNotExecutedException, IllegalArgumentException{
+		
+		String message = validateUser(user, password);
+		if (message.length() != 0){
+			throw new IllegalArgumentException(message);
+		}
+		
 		UserDAO dao = (UserDAO) daoFactory.getOperationDAO(DaoName.USER_DAO);
 		String newLogin = user.getLogin();
 		try {
@@ -68,5 +75,28 @@ public class UserServiceImpl  extends Service implements UserService{
 				throw new OperationNotExecutedException("UserServiceImpl.banUserById not executed");
 			}
 		}
+	}
+	
+	private String validateUser(User user, String password) {
+		StringBuilder messageException = new StringBuilder();
+		if (!DataValidation.namePattern.matcher(user.getName()).matches()) {
+			messageException.append("name is not valid \n");
+        }
+		if (!DataValidation.surnamePattern.matcher(String.valueOf(user.getSurname())).matches()) {
+			messageException.append("surname is not valid \n");
+        }
+		if (!DataValidation.loginPattern.matcher(String.valueOf(user.getLogin())).matches()) {
+			messageException.append("login is not valid \n");
+        }
+		if (!DataValidation.emailPattern.matcher(String.valueOf(user.getLogin())).matches()) {
+			messageException.append("email is not valid \n");
+        }
+		if (!DataValidation.phonePattern.matcher(String.valueOf(user.getLogin())).matches()) {
+			messageException.append("phone is not valid \n");
+        }
+		if (!DataValidation.passwordPattern.matcher(String.valueOf(user.getLogin())).matches()) {
+			messageException.append("password is not valid \n");
+        }
+		return messageException.toString();
 	}
 }

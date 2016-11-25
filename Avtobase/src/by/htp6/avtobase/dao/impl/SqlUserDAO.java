@@ -41,15 +41,14 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
     	String query = sqlManager.getProperty(SqlHelper.SQL_ADD_USER);
     	PreparedStatement ps = connection.prepareStatement(query);
     	
-    	ps.setInt(1, user.getId());
-    	ps.setString(2, user.getName());
-    	ps.setString(3, user.getSurname());
-    	ps.setString(4, user.getLogin());
-    	ps.setString(5, CodePassword.getHashCode(password));
-    	ps.setString(6, user.getEmail());
-    	ps.setString(7, user.getPhone());
-    	ps.setInt(8, user.getRole());
-    	ps.setString(9, user.getDate());
+    	ps.setString(1, user.getName());
+    	ps.setString(2, user.getSurname());
+    	ps.setString(3, user.getLogin());
+    	ps.setString(4, CodePassword.getHashCode(password));
+    	ps.setString(5, user.getEmail());
+    	ps.setString(6, user.getPhone());
+    	ps.setInt(7, user.getRole());
+    	ps.setString(8, user.getDate());
     	
     	ps.executeUpdate();
     	
