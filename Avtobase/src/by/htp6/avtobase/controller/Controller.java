@@ -14,18 +14,19 @@ public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 6574185461734484712L;
 
     public Controller() {
-        super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 	}
 
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
+		//TODO
+	}
 }

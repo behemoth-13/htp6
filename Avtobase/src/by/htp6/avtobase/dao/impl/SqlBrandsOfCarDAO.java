@@ -38,7 +38,7 @@ private static SqlBrandsOfCarDAO instance;
     	String query = sqlManager.getProperty(SqlHelper.SQL_ADD_BRAND_OF_CAR);
     	PreparedStatement ps = connection.prepareStatement(query);
     	
-    	ps.setString(1, brand.getBrandOfCar());
+    	ps.setString(1, brand.getName());
     	ps.setInt(2, brand.getLoadingCapacity());
     	ps.setInt(3, brand.getCapacity());
     	ps.setInt(4, brand.getCostPerKM());
@@ -58,7 +58,7 @@ private static SqlBrandsOfCarDAO instance;
     		BrandOfCar brand = new BrandOfCar();
     		
     		brand.setId(set.getInt(COLUMN_NAME_ID));
-    		brand.setBrandOfCar(set.getString(COLUMN_NAME_BRAND_OF_CAR));
+    		brand.setName(set.getString(COLUMN_NAME_BRAND_OF_CAR));
     		brand.setLoadingCapacity(set.getInt(COLUMN_NAME_LOADING_CAPACITY));
     		brand.setCapacity(set.getInt(COLUMN_NAME_CAPACITY));
     		brand.setCostPerKM(set.getInt(COLUMN_NAME_COST_PER_KM));
@@ -81,7 +81,7 @@ private static SqlBrandsOfCarDAO instance;
     		BrandOfCar brand = new BrandOfCar();
     		
     		brand.setId(set.getInt(COLUMN_NAME_ID));
-    		brand.setBrandOfCar(set.getString(COLUMN_NAME_BRAND_OF_CAR));
+    		brand.setName(set.getString(COLUMN_NAME_BRAND_OF_CAR));
     		brand.setLoadingCapacity(set.getInt(COLUMN_NAME_LOADING_CAPACITY));
     		brand.setCapacity(set.getInt(COLUMN_NAME_CAPACITY));
     		brand.setCostPerKM(set.getInt(COLUMN_NAME_COST_PER_KM));

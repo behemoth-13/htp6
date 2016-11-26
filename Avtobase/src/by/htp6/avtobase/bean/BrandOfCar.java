@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class BrandOfCar implements Serializable {
 	
-	private static final long serialVersionUID = 2738462131836461988L;
+	private static final long serialVersionUID = 6569512324194793042L;
 	
 	private int id;
-	private String brandOfCar;
+	private String name;
 	private int loadingCapacity;
 	private int capacity;
 	private int costPerKM;
@@ -16,8 +16,8 @@ public class BrandOfCar implements Serializable {
 	public int getId() {
 		return id;
 	}
-	public String getBrandOfCar() {
-		return brandOfCar;
+	public String getName() {
+		return name;
 	}
 	public int getLoadingCapacity() {
 		return loadingCapacity;
@@ -33,8 +33,8 @@ public class BrandOfCar implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public void setBrandOfCar(String brandOfCar) {
-		this.brandOfCar = brandOfCar;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public void setLoadingCapacity(int loadingCapacity) {
 		this.loadingCapacity = loadingCapacity;
