@@ -19,7 +19,7 @@ public class AddBrandOfCar extends Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		
+		BrandsOfCarService service = (BrandsOfCarService) serviceFactory.getOperationService(ServiceName.BRANDS_OF_CAR_SERVICE);
 		Integer role = (Integer) session.getAttribute(AttributeNames.ROLE);
 		
 		if (role != Roles.ADMIN.getCodeRole()) {
@@ -32,17 +32,15 @@ public class AddBrandOfCar extends Command {
 			brandOfCar.setLoadingCapacity(Integer.parseInt(request.getParameter(ParameterNames.BOC_LOADING_CAPACITY).trim()));
 			brandOfCar.setCapacity(Integer.parseInt(request.getParameter(ParameterNames.BOC_CAPACITY).trim()));
 			brandOfCar.setCostPerKM(Integer.parseInt(request.getParameter(ParameterNames.BOC_COST_PER_KM).trim()));
-			BrandsOfCarService service = (BrandsOfCarService) serviceFactory.getOperationService(ServiceName.BRANDS_OF_CAR_SERVICE);
 			service.addBrandOfCar(brandOfCar);
 			request.setAttribute(AttributeNames.MESSAGE, "Brand of car successfully added");
 		} catch (IllegalArgumentException | OperationNotExecutedException e) {
 			request.setAttribute(AttributeNames.EXCEPTION, e.getMessage());
 			return PageNames.EXCEPTION;
-		}catch (Exception e) {
+		} catch (Exception e) {
 			request.setAttribute(AttributeNames.EXCEPTION, "Wrong input");
 			return PageNames.EXCEPTION;
 		}
 		return PageNames.SUCCESS;
 	}
-
 }

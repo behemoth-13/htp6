@@ -13,7 +13,7 @@ public class User implements Serializable {
 	private String email;
 	private String phone;
 	private int role;
-	private String date;
+	private String creationDate;
 	
 	
 	public int getId() {
@@ -37,8 +37,8 @@ public class User implements Serializable {
 	public int getRole() {
 		return role;
 	}
-	public String getDate() {
-		return date;
+	public String getCreationDate() {
+		return creationDate;
 	}
 	
 	
@@ -63,7 +63,7 @@ public class User implements Serializable {
 	public void setRole(int role) {
 		this.role = role;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
 	}
 }

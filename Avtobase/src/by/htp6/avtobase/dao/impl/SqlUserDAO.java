@@ -48,7 +48,7 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
     	ps.setString(5, user.getEmail());
     	ps.setString(6, user.getPhone());
     	ps.setInt(7, user.getRole());
-    	ps.setString(8, user.getDate());
+    	ps.setString(8, user.getCreationDate());
     	
     	ps.executeUpdate();
     	
@@ -72,7 +72,7 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
             user.setEmail(result.getString(COLUMN_NAME_EMAIL));
             user.setPhone(result.getString(COLUMN_NAME_PHONE));
             user.setRole(result.getInt(COLUMN_NAME_ROLE));
-            user.setDate(result.getString(COLUMN_NAME_DATE));
+            user.setCreationDate(result.getString(COLUMN_NAME_DATE));
         }
         return user;
     }
@@ -94,7 +94,7 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
             user.setEmail(result.getString(COLUMN_NAME_EMAIL));
             user.setPhone(result.getString(COLUMN_NAME_PHONE));
             user.setRole(result.getInt(COLUMN_NAME_ROLE));
-            user.setDate(result.getString(COLUMN_NAME_DATE));
+            user.setCreationDate(result.getString(COLUMN_NAME_DATE));
     		
     		list.add(user);
     	}
@@ -118,7 +118,7 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
             user.setEmail(result.getString(COLUMN_NAME_EMAIL));
             user.setPhone(result.getString(COLUMN_NAME_PHONE));
             user.setRole(result.getInt(COLUMN_NAME_ROLE));
-            user.setDate(result.getString(COLUMN_NAME_DATE));
+            user.setCreationDate(result.getString(COLUMN_NAME_DATE));
         }
         return user;
     }
