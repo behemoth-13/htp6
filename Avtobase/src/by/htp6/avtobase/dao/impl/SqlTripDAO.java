@@ -33,7 +33,7 @@ public class SqlTripDAO extends SqlDAO implements TripDAO{
     
     public void addTrip(Trip trip) throws SQLException, InterruptedException {
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_ADD_TRIP);
+    	String query = SqlHelper.SQL_ADD_TRIP;
     	PreparedStatement ps = connection.prepareStatement(query);
     	
     	ps.setInt(1, trip.getOrderId());
@@ -48,7 +48,7 @@ public class SqlTripDAO extends SqlDAO implements TripDAO{
     public List<Trip> getTrips() throws SQLException, InterruptedException {
     	List<Trip> list = new ArrayList<>();
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_GET_TRIPS);
+    	String query = SqlHelper.SQL_GET_TRIPS;
     	PreparedStatement ps = connection.prepareStatement(query);
     	ResultSet set = ps.executeQuery();
     	
@@ -68,7 +68,7 @@ public class SqlTripDAO extends SqlDAO implements TripDAO{
     
     public Trip getTripByOrdersId(int orderId) throws SQLException, InterruptedException {
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_GET_TRIP_BY_ORDERS_ID);
+    	String query = SqlHelper.SQL_GET_TRIP_BY_ORDERS_ID;
     	PreparedStatement ps = connection.prepareStatement(query);
     	ps.setInt(1, orderId);
     	ResultSet set = ps.executeQuery();

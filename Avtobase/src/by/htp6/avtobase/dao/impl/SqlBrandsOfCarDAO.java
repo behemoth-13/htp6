@@ -35,7 +35,7 @@ private static SqlBrandsOfCarDAO instance;
     
     public void addBrandOfCar(BrandOfCar brand) throws SQLException, InterruptedException {
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_ADD_BRAND_OF_CAR);
+    	String query = SqlHelper.SQL_ADD_BRAND_OF_CAR;
     	PreparedStatement ps = connection.prepareStatement(query);
     	
     	ps.setString(1, brand.getName());
@@ -50,7 +50,7 @@ private static SqlBrandsOfCarDAO instance;
     public List<BrandOfCar> getBrandsOfCars() throws SQLException, InterruptedException {
     	List<BrandOfCar> list = new ArrayList<>();
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_GET_BRANDS_OF_CAR);
+    	String query = SqlHelper.SQL_GET_BRANDS_OF_CAR;
     	PreparedStatement ps = connection.prepareStatement(query);
     	ResultSet set = ps.executeQuery();
     	
@@ -72,7 +72,7 @@ private static SqlBrandsOfCarDAO instance;
     public Map<Integer, BrandOfCar> getBrandsOfCarsById() throws SQLException, InterruptedException {
     	Map<Integer, BrandOfCar> map = new HashMap<>();
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_GET_BRANDS_OF_CAR);
+    	String query = SqlHelper.SQL_GET_BRANDS_OF_CAR;
     	PreparedStatement ps = connection.prepareStatement(query);
     	ResultSet set = ps.executeQuery();
     	
@@ -94,7 +94,7 @@ private static SqlBrandsOfCarDAO instance;
     
     public void deleteBrandOfCarById(int id) throws SQLException, InterruptedException {
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_DELETE_BRAND_OF_CAR_BY_ID);
+    	String query = SqlHelper.SQL_DELETE_BRAND_OF_CAR_BY_ID;
     	PreparedStatement ps = connection.prepareStatement(query);
     	
     	ps.setInt(1, id);
@@ -108,7 +108,7 @@ private static SqlBrandsOfCarDAO instance;
 	@Override
 	public boolean isBrandsOfCarsExist(String brandName) throws SQLException, InterruptedException {
         PreparedStatement ps = null;
-        String query =  sqlManager.getProperty(SqlHelper.SQL_GET_BRANDS_OF_CAR_BY_NAME);
+        String query =  SqlHelper.SQL_GET_BRANDS_OF_CAR_BY_NAME;
         ps = poolInstance.take().prepareStatement(query);
         
         ps.setString(1, brandName);

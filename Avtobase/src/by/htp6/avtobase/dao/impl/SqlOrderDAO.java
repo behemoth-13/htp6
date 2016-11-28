@@ -36,17 +36,16 @@ public class SqlOrderDAO extends SqlDAO implements OrderDAO{
     
     public void addOrder(Order order) throws SQLException, InterruptedException {
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_ADD_ORDER);
+    	String query = SqlHelper.SQL_ADD_ORDER;
     	PreparedStatement ps = connection.prepareStatement(query);
     	
-    	ps.setInt(1, order.getId());
-    	ps.setInt(2, order.getUserId());
-    	ps.setInt(3, order.getWeight());
-    	ps.setInt(4, order.getCapacity());
-    	ps.setInt(5, order.getDistance());
-    	ps.setInt(6, order.getStatusOrder());
-    	ps.setString(7, order.getTimeStatusOrder());
-    	ps.setString(8, order.getCreationTime());
+    	ps.setInt(1, order.getUserId());
+    	ps.setInt(2, order.getWeight());
+    	ps.setInt(3, order.getCapacity());
+    	ps.setInt(4, order.getDistance());
+    	ps.setInt(5, order.getStatusOrder());
+    	ps.setString(6, order.getTimeStatusOrder());
+    	ps.setString(7, order.getCreationTime());
     	ps.executeUpdate();
     	
     	poolInstance.addOpenConnection(connection);
@@ -55,7 +54,7 @@ public class SqlOrderDAO extends SqlDAO implements OrderDAO{
     public List<Order> getOrders() throws SQLException, InterruptedException {
     	List<Order> list = new ArrayList<>();
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_GET_ORDERS);
+    	String query = SqlHelper.SQL_GET_ORDERS;
     	PreparedStatement ps = connection.prepareStatement(query);
     	ResultSet set = ps.executeQuery();
     	
@@ -80,7 +79,7 @@ public class SqlOrderDAO extends SqlDAO implements OrderDAO{
     public List<Order> getOrdersByUsersId(int userId) throws SQLException, InterruptedException {
     	List<Order> list = new ArrayList<>();
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_GET_ORDERS_BY_USERS_ID);
+    	String query = SqlHelper.SQL_GET_ORDERS_BY_USERS_ID;
     	PreparedStatement ps = connection.prepareStatement(query);
     	ps.setInt(1, userId);
     	ResultSet set = ps.executeQuery();
@@ -105,11 +104,11 @@ public class SqlOrderDAO extends SqlDAO implements OrderDAO{
     
     public void updateStatusOrderByID(int orderId, int status) throws SQLException, InterruptedException {
 		Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_UPDATE_STATUS_ORDER_BY_ID);
+    	String query = SqlHelper.SQL_UPDATE_STATUS_ORDER_BY_ID;
     	PreparedStatement ps = connection.prepareStatement(query);
     	
-    	ps.setInt(1, orderId);
-    	ps.setInt(2, status);
+    	ps.setInt(1, status);
+    	ps.setInt(2, orderId);
     	
     	ps.executeUpdate();
     	
@@ -119,7 +118,7 @@ public class SqlOrderDAO extends SqlDAO implements OrderDAO{
     public List<Order> getOrdersByStatus(int status) throws SQLException, InterruptedException {
     	List<Order> list = new ArrayList<>();
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_GET_ORDERS_BY_STATUS);
+    	String query = SqlHelper.SQL_GET_ORDERS_BY_STATUS;
     	PreparedStatement ps = connection.prepareStatement(query);
     	ps.setInt(1, status);
     	ResultSet set = ps.executeQuery();
@@ -141,5 +140,4 @@ public class SqlOrderDAO extends SqlDAO implements OrderDAO{
     	poolInstance.addOpenConnection(connection);
     	return list;
     }
-  //TODO methods
 }

@@ -34,7 +34,7 @@ public class SqlCarDAO extends SqlDAO implements CarDAO{
 	@Override
 	public void addCar(Car car) throws SQLException, InterruptedException {
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_ADD_CAR);
+    	String query = SqlHelper.SQL_ADD_CAR;
     	PreparedStatement ps = connection.prepareStatement(query);
     	
     	ps.setInt(1, car.getDriversUsersId());
@@ -63,11 +63,11 @@ public class SqlCarDAO extends SqlDAO implements CarDAO{
 	@Override
 	public void updateCountOfKM(int driverId, int countOfKM) throws SQLException, InterruptedException {
 		Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_UPDATE_COUNT_OF_KM_BY_DRIVER_ID);
+    	String query = SqlHelper.SQL_UPDATE_COUNT_OF_KM_BY_DRIVER_ID;
     	PreparedStatement ps = connection.prepareStatement(query);
     	
-    	ps.setInt(1, driverId);
-    	ps.setInt(2, countOfKM);
+    	ps.setInt(1, countOfKM);
+    	ps.setInt(2, driverId);
     	
     	ps.executeUpdate();
     	
@@ -78,7 +78,7 @@ public class SqlCarDAO extends SqlDAO implements CarDAO{
 	public List<Car> getCars() throws SQLException, InterruptedException {
     	List<Car> list = new ArrayList<>();
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_GET_CARS);
+    	String query = SqlHelper.SQL_GET_CARS;
     	PreparedStatement ps = connection.prepareStatement(query);
     	ResultSet set = ps.executeQuery();
     	
@@ -100,7 +100,7 @@ public class SqlCarDAO extends SqlDAO implements CarDAO{
 	public Car getCarByStateNumber(String stateNumber) throws SQLException, InterruptedException {
         Car car = null;
         PreparedStatement ps = null;
-        String query =  sqlManager.getProperty(SqlHelper.SQL_GET_CAR_BY_STATE_NUMBER);
+        String query =  SqlHelper.SQL_GET_CAR_BY_STATE_NUMBER;
         ps = poolInstance.take().prepareStatement(query);
         ps.setString(1, stateNumber);
         ResultSet result = ps.executeQuery();

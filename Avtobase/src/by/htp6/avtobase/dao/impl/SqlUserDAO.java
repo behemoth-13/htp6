@@ -38,7 +38,7 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
     
     public void registerUser(User user, String password) throws SQLException, InterruptedException {
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_ADD_USER);
+    	String query = SqlHelper.SQL_ADD_USER;
     	PreparedStatement ps = connection.prepareStatement(query);
     	
     	ps.setString(1, user.getName());
@@ -58,7 +58,7 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
     public User getUser(String login, String password) throws SQLException, InterruptedException {
         User user = null;
         PreparedStatement ps = null;
-        String query =  sqlManager.getProperty(SqlHelper.SQL_GET_USER);
+        String query =  SqlHelper.SQL_GET_USER;
         ps = poolInstance.take().prepareStatement(query);
         ps.setString(1, login);
         ps.setString(2, password);
@@ -80,7 +80,7 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
     public List<User> getUsers() throws SQLException, InterruptedException {
     	List<User> list = new ArrayList<>();
     	Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_GET_USERS);
+    	String query = SqlHelper.SQL_GET_USERS;
     	PreparedStatement ps = connection.prepareStatement(query);
     	ResultSet result = ps.executeQuery();
     	
@@ -105,7 +105,7 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
     public User getUserById(int id) throws SQLException, InterruptedException {
         User user = null;
         PreparedStatement ps = null;
-        String query =  sqlManager.getProperty(SqlHelper.SQL_GET_USER_BY_ID);
+        String query =  SqlHelper.SQL_GET_USER_BY_ID;
         ps = poolInstance.take().prepareStatement(query);
         ps.setInt(1, id);
         ResultSet result = ps.executeQuery();
@@ -126,11 +126,11 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
 	@Override
 	public void banUserById(int id) throws SQLException, InterruptedException {
 		Connection connection = poolInstance.take();
-    	String query = sqlManager.getProperty(SqlHelper.SQL_ADD_USER);
+    	String query = SqlHelper.SQL_BAN_USER_BY_ID;
     	PreparedStatement ps = connection.prepareStatement(query);
     	
-    	ps.setInt(1, id);
-    	ps.setInt(2, Roles.BANNED_USER.getCodeRole());
+    	ps.setInt(1, Roles.BANNED_USER.getCodeRole());
+    	ps.setInt(2, id);
     	
     	ps.executeUpdate();
     	
