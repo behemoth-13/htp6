@@ -5,7 +5,7 @@ import java.util.List;
 
 import by.htp6.avtobase.bean.Order;
 import by.htp6.avtobase.bean.User;
-import by.htp6.avtobase.constants.Roles;
+import by.htp6.avtobase.bean.constants.Roles;
 import by.htp6.avtobase.dao.OrderDAO;
 import by.htp6.avtobase.dao.UserDAO;
 import by.htp6.avtobase.dao.factory.DaoName;

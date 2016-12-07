@@ -1,4 +1,4 @@
-package by.htp6.avtobase.constants;
+package by.htp6.avtobase.bean.constants;
 
 public enum Roles {
 	ADMIN(0), USER(1), GUEST(2), MANAGER(3),

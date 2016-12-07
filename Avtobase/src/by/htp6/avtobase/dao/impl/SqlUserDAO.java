@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import by.htp6.avtobase.bean.User;
-import by.htp6.avtobase.constants.Roles;
+import by.htp6.avtobase.bean.constants.Roles;
 import by.htp6.avtobase.dao.SqlDAO;
 import by.htp6.avtobase.dao.UserDAO;
 import by.htp6.avtobase.dao.sql.SqlHelper;
@@ -40,7 +40,6 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
     	Connection connection = poolInstance.take();
     	String query = SqlHelper.SQL_ADD_USER;
     	PreparedStatement ps = connection.prepareStatement(query);
-    	
     	ps.setString(1, user.getName());
     	ps.setString(2, user.getSurname());
     	ps.setString(3, user.getLogin());
@@ -49,9 +48,7 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
     	ps.setString(6, user.getPhone());
     	ps.setInt(7, user.getRole());
     	ps.setString(8, user.getCreationDate());
-    	
     	ps.executeUpdate();
-    	
     	poolInstance.addOpenConnection(connection);
     }
     
@@ -60,6 +57,7 @@ public class SqlUserDAO extends SqlDAO implements UserDAO{
         PreparedStatement ps = null;
         String query =  SqlHelper.SQL_GET_USER;
         ps = poolInstance.take().prepareStatement(query);
+        
         ps.setString(1, login);
         ps.setString(2, password);
         ResultSet result = ps.executeQuery();

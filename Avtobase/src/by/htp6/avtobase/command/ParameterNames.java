@@ -1,6 +1,8 @@
 package by.htp6.avtobase.command;
 
 public class ParameterNames {
+	public static final String COMMAND = "cm";
+	
 	//BRANDS OF CARS
 	public static final String BOC_NAME = "bn";
 	public static final String BOC_LOADING_CAPACITY = "bl";
@@ -29,4 +31,5 @@ public class ParameterNames {
 	public static final String U_PHONE = "up";
 	public static final String U_PASSWORD = "ua";
 	public static final String U_ID_BAN_USER = "ui";
+	
 }

@@ -19,7 +19,7 @@ import by.htp6.avtobase.dao.util.ConfigParser;
 
 public class ConnectionPool implements Closeable, SourceInit{
 	private final static  ConnectionPool instance = new ConnectionPool();
-	private final static String CONFIG_XML = "by.htp6.avtobase.dao.pool.config.config.xml";
+	private final static String CONFIG_XML = "by/htp6/avtobase/dao/pool/config/config.xml";
 	
 	private BlockingQueue<Connection> freeConnections;
 	private BlockingQueue<Connection> busyConnections;
@@ -43,12 +43,10 @@ public class ConnectionPool implements Closeable, SourceInit{
 			login = parser.getLogin();
 			password = parser.getPassword();
 			poolSize = parser.getPoolSize();
-			
 			Driver driver;
 		
 			driver = (Driver) Class.forName(driverName).newInstance();
 			DriverManager.registerDriver(driver);
-	
 			freeConnections = new ArrayBlockingQueue<>(poolSize);
 			busyConnections = new ArrayBlockingQueue<>(poolSize);
 			

@@ -1,4 +1,4 @@
-package by.htp6.avtobase.constants;
+package by.htp6.avtobase.bean.constants;
 
 public enum CarStatus {
 	READY(0), BROKEN(1);

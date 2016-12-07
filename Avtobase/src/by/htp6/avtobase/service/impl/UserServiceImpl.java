@@ -4,9 +4,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 import by.htp6.avtobase.bean.User;
-import by.htp6.avtobase.constants.Roles;
+import by.htp6.avtobase.bean.constants.Roles;
 import by.htp6.avtobase.dao.UserDAO;
 import by.htp6.avtobase.dao.factory.DaoName;
+import by.htp6.avtobase.dao.util.CodePassword;
 import by.htp6.avtobase.exception.OperationNotExecutedException;
 import by.htp6.avtobase.service.Service;
 import by.htp6.avtobase.service.UserService;
@@ -77,26 +78,40 @@ public class UserServiceImpl  extends Service implements UserService{
 		}
 	}
 	
+	@Override
+		public User getUser(String login, String password) throws OperationNotExecutedException {
+		UserDAO dao = (UserDAO) daoFactory.getOperationDAO(DaoName.USER_DAO);
+		User user = null;
+		try {
+				user = dao.getUser(login, CodePassword.getHashCode(password));
+			} catch (SQLException | InterruptedException e) {
+				throw new OperationNotExecutedException("User is not exist");
+			}
+			return user;
+		}
+	
 	private String validateUser(User user, String password) {
 		StringBuilder messageException = new StringBuilder();
 		if (!DataValidation.namePattern.matcher(user.getName()).matches()) {
 			messageException.append("name is not valid \n");
         }
-		if (!DataValidation.surnamePattern.matcher(String.valueOf(user.getSurname())).matches()) {
+		if (!DataValidation.surnamePattern.matcher(user.getSurname()).matches()) {
 			messageException.append("surname is not valid \n");
         }
-		if (!DataValidation.loginPattern.matcher(String.valueOf(user.getLogin())).matches()) {
+		if (!DataValidation.loginPattern.matcher(user.getLogin()).matches()) {
 			messageException.append("login is not valid \n");
         }
-		if (!DataValidation.emailPattern.matcher(String.valueOf(user.getLogin())).matches()) {
+		if (!DataValidation.emailPattern.matcher(user.getEmail()).matches()) {
 			messageException.append("email is not valid \n");
         }
-		if (!DataValidation.phonePattern.matcher(String.valueOf(user.getLogin())).matches()) {
+		if (!DataValidation.phonePattern.matcher(user.getPhone()).matches()) {
 			messageException.append("phone is not valid \n");
         }
-		if (!DataValidation.passwordPattern.matcher(String.valueOf(user.getLogin())).matches()) {
+		if (!DataValidation.passwordPattern.matcher(password).matches()) {
 			messageException.append("password is not valid \n");
         }
 		return messageException.toString();
 	}
+
+	
 }

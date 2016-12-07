@@ -1,4 +1,4 @@
-package by.htp6.avtobase.constants;
+package by.htp6.avtobase.bean.constants;
 
 public enum OrderStatus {
     HAS_COME(0), PROCEED_DISP(1), IN_WORK(2), COMPLETED(3), REJECTED(4);
