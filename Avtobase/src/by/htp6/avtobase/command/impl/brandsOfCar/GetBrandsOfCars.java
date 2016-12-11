@@ -1,4 +1,4 @@
-package by.htp6.avtobase.command.impl.BrandsOfCar;
+package by.htp6.avtobase.command.impl.brandsOfCar;
 
 import java.util.List;
 

@@ -5,20 +5,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<!-- <title>Insert title here</title> -->
 </head>
-<body>
 
-${sign_in}
+<body>
 <br>
     <c:if test="${sessionScope.LOGIN == null }">
     <form action="Controller" method="post">
+    	${sign_in}
+    	<br>
 		Логин <input type="text" maxlength="15" name="ul"><br>
 		<br>
 		Пароль <input type="password" maxlength="15" name="ua">
 		<br>
 		<br>
-		<button name="cm" value="ul" type="submit">войти</button>
+		<button name="cm" value="ul" type="submit">${sign_in_button}</button>
 		</form>
 	<form action="registration" method="get">
 	<button type="submit">регистрация</button>
@@ -35,7 +36,7 @@ ${sign_in}
 		USER_CREATION_DATE = ${USER_CREATION_DATE}<br>
 		<br>
 	<form action="Controller" method="get">
-		<button name="cm" value="ue" type="submit">выйти</button>
+		<button name="cm" value="ue" type="submit">${sign_out_button}</button>
 	</form>
 	
 	</c:if>

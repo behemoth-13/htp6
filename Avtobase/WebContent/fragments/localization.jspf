@@ -4,9 +4,19 @@
 <!DOCTYPE html PUBLIC>
 <html>
 
-<fmt:setLocale value="${sessionScope.locale}"/>
+<fmt:setLocale value="${sessionScope.local}"/>
 <fmt:setBundle basename="localization.local" var="loc" />
 
-<fmt:message bundle="${loc}" key="authorization.sign_in" var="sign_in"/>
+<fmt:message bundle="${loc}" key="local.authorization.sign_in" var="sign_in"/>
 
+<!-- titles of page -->
+<fmt:message bundle="${loc}" key="local.title.index" var="index_title"/>
+<fmt:message bundle="${loc}" key="local.title.registration" var="registration_title"/>
+
+<!-- names of button -->
+<fmt:message bundle="${loc}" key="local.button.localization.en" var="loc_en"/>
+<fmt:message bundle="${loc}" key="local.button.localization.ru" var="loc_ru"/>
+<fmt:message bundle="${loc}" key="local.button.make_order" var="make_order"/>
+<fmt:message bundle="${loc}" key="local.button.sign_in" var="sign_in_button"/>
+<fmt:message bundle="${loc}" key="local.button.sign_out" var="sign_out_button"/>
 </html>

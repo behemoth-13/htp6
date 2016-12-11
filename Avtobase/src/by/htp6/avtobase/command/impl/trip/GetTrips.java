@@ -1,4 +1,4 @@
-package by.htp6.avtobase.command.impl.User;
+package by.htp6.avtobase.command.impl.trip;
 
 import java.util.List;
 
@@ -6,35 +6,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import by.htp6.avtobase.bean.User;
+import by.htp6.avtobase.bean.Trip;
 import by.htp6.avtobase.bean.constants.Roles;
 import by.htp6.avtobase.command.AttributeNames;
 import by.htp6.avtobase.command.PageNames;
 import by.htp6.avtobase.command.impl.Command;
 import by.htp6.avtobase.exception.OperationNotExecutedException;
-import by.htp6.avtobase.service.UserService;
+import by.htp6.avtobase.service.TripService;
 import by.htp6.avtobase.service.factory.ServiceName;
 
-public class GetUsers extends Command {
+public class GetTrips extends Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		UserService service = (UserService) serviceFactory.getOperationService(ServiceName.USER_SERVICE);
+		TripService service = (TripService) serviceFactory.getOperationService(ServiceName.TRIP_SERVICE);
         Integer role = (Integer) session.getAttribute(AttributeNames.ROLE);
 		
-		if (role != Roles.ADMIN.getCodeRole()) {
+		if ((role == Roles.BANNED_USER.getCodeRole()) || (role == Roles.GUEST.getCodeRole())) {
 			request.setAttribute(AttributeNames.EXCEPTION, "Wrong Access level");
 			return PageNames.EXCEPTION;
 		}
-		List<User> list = null;
+		List<Trip> list = null;
 		try {
-			list = service.getUsers();
-			request.setAttribute(AttributeNames.LIST_USERS, list);
+			list = service.getTrips();
+			request.setAttribute(AttributeNames.LIST_TRIPS, list);
 		} catch (OperationNotExecutedException e) {
 			request.setAttribute(AttributeNames.EXCEPTION, e.getMessage());
 			return PageNames.EXCEPTION;
 		}
-		return PageNames.SHOW_USERS;
+		return PageNames.SHOW_TRIPS;
 	}
 }

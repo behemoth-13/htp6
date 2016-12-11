@@ -5,23 +5,24 @@ import java.util.Map;
 
 import by.htp6.avtobase.SourceInit;
 import by.htp6.avtobase.command.impl.Command;
-import by.htp6.avtobase.command.impl.BrandsOfCar.AddBrandOfCar;
-import by.htp6.avtobase.command.impl.BrandsOfCar.GetBrandsOfCars;
-import by.htp6.avtobase.command.impl.Car.AddCar;
-import by.htp6.avtobase.command.impl.Car.GetCars;
-import by.htp6.avtobase.command.impl.Car.UpdateCountOfKM;
-import by.htp6.avtobase.command.impl.Order.AddOrder;
-import by.htp6.avtobase.command.impl.Order.GetOrders;
-import by.htp6.avtobase.command.impl.Order.GetOrdersByStatus;
-import by.htp6.avtobase.command.impl.Order.GetOrdersByUsersId;
-import by.htp6.avtobase.command.impl.Order.UpdateStatusOrderByID;
-import by.htp6.avtobase.command.impl.Trip.GetTrips;
-import by.htp6.avtobase.command.impl.Trip.UpdateStatusTripByID;
-import by.htp6.avtobase.command.impl.User.BanUserById;
-import by.htp6.avtobase.command.impl.User.Exit;
-import by.htp6.avtobase.command.impl.User.GetUsers;
-import by.htp6.avtobase.command.impl.User.Logination;
-import by.htp6.avtobase.command.impl.User.RegisterUser;
+import by.htp6.avtobase.command.impl.brandsOfCar.AddBrandOfCar;
+import by.htp6.avtobase.command.impl.brandsOfCar.GetBrandsOfCars;
+import by.htp6.avtobase.command.impl.car.AddCar;
+import by.htp6.avtobase.command.impl.car.GetCars;
+import by.htp6.avtobase.command.impl.car.UpdateCountOfKM;
+import by.htp6.avtobase.command.impl.localization.Localization;
+import by.htp6.avtobase.command.impl.order.AddOrder;
+import by.htp6.avtobase.command.impl.order.GetOrders;
+import by.htp6.avtobase.command.impl.order.GetOrdersByStatus;
+import by.htp6.avtobase.command.impl.order.GetOrdersByUsersId;
+import by.htp6.avtobase.command.impl.order.UpdateStatusOrderByID;
+import by.htp6.avtobase.command.impl.trip.GetTrips;
+import by.htp6.avtobase.command.impl.trip.UpdateStatusTripByID;
+import by.htp6.avtobase.command.impl.user.BanUserById;
+import by.htp6.avtobase.command.impl.user.Exit;
+import by.htp6.avtobase.command.impl.user.GetUsers;
+import by.htp6.avtobase.command.impl.user.Logination;
+import by.htp6.avtobase.command.impl.user.RegisterUser;
 import by.htp6.avtobase.exception.InitException;
 
 public class CommandFactory implements SourceInit {
@@ -62,6 +63,7 @@ public class CommandFactory implements SourceInit {
 		map.put("ur", new RegisterUser());
 		map.put("ul", new Logination());
 		map.put("ue", new Exit());
+		map.put("ll", new Localization());
 	}
 
 	@Override

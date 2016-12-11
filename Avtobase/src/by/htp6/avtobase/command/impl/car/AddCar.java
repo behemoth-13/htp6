@@ -1,4 +1,4 @@
-package by.htp6.avtobase.command.impl.Car;
+package by.htp6.avtobase.command.impl.car;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
