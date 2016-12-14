@@ -1,13 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC>
 <html>
 
 <fmt:setLocale value="${sessionScope.local}"/>
 <fmt:setBundle basename="localization.local" var="loc" />
 
-<fmt:message bundle="${loc}" key="local.authorization.sign_in" var="sign_in"/>
+<!-- text -->
+<fmt:message bundle="${loc}" key="local.index.sign_in" var="sign_in"/>
+<fmt:message bundle="${loc}" key="local.common.login" var="login"/>
+<fmt:message bundle="${loc}" key="local.login.password" var="password"/>
+<fmt:message bundle="${loc}" key="local.registration.registration" var="registration"/>
+<fmt:message bundle="${loc}" key="local.registration.name" var="name"/>
+<fmt:message bundle="${loc}" key="local.registration.surname" var="surname"/>
+<fmt:message bundle="${loc}" key="local.registration.email" var="email"/>
+<fmt:message bundle="${loc}" key="local.registration.phone" var="phone"/>
+<fmt:message bundle="${loc}" key="local.registration.password" var="password"/>
 
 <!-- titles of page -->
 <fmt:message bundle="${loc}" key="local.title.index" var="index_title"/>
@@ -19,4 +28,6 @@
 <fmt:message bundle="${loc}" key="local.button.make_order" var="make_order"/>
 <fmt:message bundle="${loc}" key="local.button.sign_in" var="sign_in_button"/>
 <fmt:message bundle="${loc}" key="local.button.sign_out" var="sign_out_button"/>
+<fmt:message bundle="${loc}" key="local.button.registration" var="registration_button"/>
+<fmt:message bundle="${loc}" key="local.registration.register" var="register_button"/>
 </html>
