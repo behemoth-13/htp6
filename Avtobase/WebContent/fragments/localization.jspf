@@ -8,20 +8,22 @@
 <fmt:setBundle basename="localization.local" var="loc" />
 
 <!-- text -->
-<fmt:message bundle="${loc}" key="local.index.sign_in" var="sign_in"/>
 <fmt:message bundle="${loc}" key="local.common.login" var="login"/>
-<fmt:message bundle="${loc}" key="local.login.password" var="password"/>
+<fmt:message bundle="${loc}" key="local.common.password" var="password"/>
+<fmt:message bundle="${loc}" key="local.index.sign_in" var="sign_in"/>
 <fmt:message bundle="${loc}" key="local.registration.registration" var="registration"/>
 <fmt:message bundle="${loc}" key="local.registration.name" var="name"/>
 <fmt:message bundle="${loc}" key="local.registration.surname" var="surname"/>
 <fmt:message bundle="${loc}" key="local.registration.email" var="email"/>
 <fmt:message bundle="${loc}" key="local.registration.phone" var="phone"/>
-<fmt:message bundle="${loc}" key="local.registration.password" var="password"/>
-
+<fmt:message bundle="${loc}" key="local.registration.valid_name_surname" var="val_name_surname"/>
+<fmt:message bundle="${loc}" key="local.registration.valid_login" var="val_login"/>
+<fmt:message bundle="${loc}" key="local.registration.valid_email" var="val_email"/>
+<fmt:message bundle="${loc}" key="local.registration.valid_phone" var="val_phone"/>
+<fmt:message bundle="${loc}" key="local.registration.valid_password" var="val_password"/>
 <!-- titles of page -->
 <fmt:message bundle="${loc}" key="local.title.index" var="index_title"/>
 <fmt:message bundle="${loc}" key="local.title.registration" var="registration_title"/>
-
 <!-- names of button -->
 <fmt:message bundle="${loc}" key="local.button.localization.en" var="loc_en"/>
 <fmt:message bundle="${loc}" key="local.button.localization.ru" var="loc_ru"/>
