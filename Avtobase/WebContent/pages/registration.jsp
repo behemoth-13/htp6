@@ -27,7 +27,7 @@
 	<p id="login" style="color:red">${val_login}</p>
 	<br>
 	
-	${email} <input type="text" name="ue" id="emailForm" onKeyUp="chek('email')">
+	${email} <input type="text" name="ue" id="emailForm" onKeyUp="check('email')">
 	<p id="email" style="color:red">${val_email}</p>
 	<br>
 	
