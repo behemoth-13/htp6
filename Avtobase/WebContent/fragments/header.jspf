@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+	<header class="top_header">
+		<div class="header_topline">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="row">
+						<button class="auth_buttons hidden-md hidden-lg hidden-sm"><i class="fa fa-user"></i></button>
+						<div class="top_links">
+							<form action="Controller" method="post">
+								<button class="button" name="cm" value="ul" type="submit">${sign_in_button}</button>
+								${login} <input type="text" maxlength="15" name="ul" size="15">
+								${password} <input type="password" maxlength="15" name="ua" size="15">
+								 / <a class="button" href="registration">${registration_button}</a>
+							</form>
+						</div>
+						<div class="soc_buttons">
+							<form action="Controller" method="get">
+								<input type="hidden" name="local" value="en"></input>
+								<button name="cm" value="ll" type="submit"><img src="images/en_flag.png"></button>
+							</form>
+							<form action="Controller" method="get">
+								<input type="hidden" name="local" value="ru"></input>
+								<button name="cm" value="ll" type="submit"><img src="images/ru_flag.png"></button>
+							</form>
+							<a href="#"><i class="fa fa-vk"></i></a>
+							<a href="#"><i class="fa fa-facebook-square"></i></a>
+							<a href="#"><i class="fa fa-twitter-square"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="col-md-12">
+				<div class="row">
+					<a href="main" class="logo">ГрузБел</a>
+					<nav class="main_menu clearfix">
+						<button class="main_menu_button hidden-md hidden-lg"><i class="fa fa-bars"></i></button>
+						<ul>
+							<li class="active"><a href="main">главная</a></li>
+							<li><a href="#">${make_order}</a></li>
+							<li><a href="#">${autopark}</a></li>
+							<li><a href="#">${prices}</a></li>
+						</ul>
+						<div class="top_contacts"><i class="fa fa-mobile"></i> +375292773547</div>
+					</nav>
+					<h1>Автобаза грузовых автомобилей</h1>
+					<div class="sider_container">
+					<div class="next_button"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+					<div class="prev_button"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+						<div class="carousel">
+							<div class="slide_item"><img src="images/park_1.jpg"></div>
+							<div class="slide_item"><img src="images/park_2.jpg"></div>
+							<div class="slide_item"><img src="images/park_3.jpg"></div>
+							<div class="slide_item"><img src="images/park_4.jpg"></div>
+							<div class="slide_item"><img src="images/park_1.jpg"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+</body>
+</html>

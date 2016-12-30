@@ -27,8 +27,6 @@
 <fmt:message bundle="${loc}" key="local.title.about" var="about_title"/>
 <fmt:message bundle="${loc}" key="local.title.price" var="price_title"/>
 <!-- names of button -->
-<fmt:message bundle="${loc}" key="local.localization.en" var="loc_en"/>
-<fmt:message bundle="${loc}" key="local.localization.ru" var="loc_ru"/>
 <fmt:message bundle="${loc}" key="local.index.make_order" var="make_order"/>
 <fmt:message bundle="${loc}" key="local.index.autopark" var="autopark"/>
 <fmt:message bundle="${loc}" key="local.index.prices" var="prices"/>
