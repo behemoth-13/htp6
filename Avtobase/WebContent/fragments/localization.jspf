@@ -8,6 +8,7 @@
 <fmt:setBundle basename="localization.local" var="loc" />
 
 <!-- text -->
+<fmt:message bundle="${loc}" key="local.header.base_trucks" var="base_trucks"/>
 <fmt:message bundle="${loc}" key="local.common.login" var="login"/>
 <fmt:message bundle="${loc}" key="local.common.password" var="password"/>
 <fmt:message bundle="${loc}" key="local.index.sign_in" var="sign_in"/>
@@ -27,6 +28,7 @@
 <fmt:message bundle="${loc}" key="local.title.about" var="about_title"/>
 <fmt:message bundle="${loc}" key="local.title.price" var="price_title"/>
 <!-- names of button -->
+<fmt:message bundle="${loc}" key="local.index.to_main" var="to_main"/>
 <fmt:message bundle="${loc}" key="local.index.make_order" var="make_order"/>
 <fmt:message bundle="${loc}" key="local.index.autopark" var="autopark"/>
 <fmt:message bundle="${loc}" key="local.index.prices" var="prices"/>

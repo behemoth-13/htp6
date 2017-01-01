@@ -46,6 +46,10 @@ body {
 .top_links a:hover {
 	text-decoration: none;
 }
+.button_local > img {
+	margin: -9px;
+    height: 29px;
+}
 .soc_buttons {
 	float: right;
 }

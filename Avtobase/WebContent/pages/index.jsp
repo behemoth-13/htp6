@@ -21,12 +21,9 @@
 </head>
 <body>
 	<%@include file="../fragments/header.jspf"  %>
+	<%@include file="../fragments/mainContent.jspf"  %>
+	<%@include file="../fragments/footer.jspf" %>
 	<div align="center">
-		<%@include file="../fragments/localeButton.jspf"  %>
-		<br>
-		<%@include file="../fragments/login.jspf" %>
-		<br>
-	
 		<button name="makeorder">${make_order}</button><br>
 		<br>
 		<button name="autopark">${autopark}</button><br>

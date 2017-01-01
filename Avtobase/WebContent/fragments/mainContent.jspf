@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+	<section class="main_content">
+		<div class="container">
+		<div class="col-md-8">
+			<div class="content-text">
+				<div class="blog_item">
+					<div class="row">
+						<div class="col-md-12">
+							<h3><a href="#">О компании</a></h3>
+						</div>
+						<div class="col-md-4">
+							<img src="http://t-l.by/wp-content/uploads/2014/03/114717.png">
+						</div>
+						<div class="col-md-8">
+							<p>   Штат сотрудников компании ГрузБел состоит исключительно из опытных специалистов, которые умеют грамотно спланировать и выполнить полученный заказ с индивидуальным подходом к каждому клиенту, будь-то грузоперевозки по Минску или по республике в целом. Несомненно достигается это благодаря и нашему автопарку, который всегда находится в отличном работоспособном и технически исправном состоянии. С учетом данных положительных сторон, Вы можете смело обращаться в компанию и при этом быть полностью уверены, что ваш груз будет доставлен быстро и без повреждений.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="col-md-4">
+				<aside>
+				
+				</aside>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
