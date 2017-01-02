@@ -9,6 +9,8 @@
 
 <!-- text -->
 <fmt:message bundle="${loc}" key="local.header.base_trucks" var="base_trucks"/>
+<fmt:message bundle="${loc}" key="local.mainContent.main_content" var="main_content"/>
+<fmt:message bundle="${loc}" key="local.header.hello" var="hello"/>
 <fmt:message bundle="${loc}" key="local.common.login" var="login"/>
 <fmt:message bundle="${loc}" key="local.common.password" var="password"/>
 <fmt:message bundle="${loc}" key="local.index.sign_in" var="sign_in"/>
