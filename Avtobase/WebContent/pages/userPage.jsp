@@ -9,7 +9,8 @@
 </head>
 <body>
 	<form action="main" method="get">
-	<button type="submit">На главную</button>
+	успешно зашли на  userPage
+		<button type="submit">На главную</button>
 	</form>
 </body>
 </html>

@@ -25,6 +25,7 @@
 <fmt:message bundle="${loc}" key="local.registration.valid_phone" var="val_phone"/>
 <fmt:message bundle="${loc}" key="local.registration.valid_password" var="val_password"/>
 <!-- titles of page -->
+<fmt:message bundle="${loc}" key="local.title.exception" var="exception_title"/>
 <fmt:message bundle="${loc}" key="local.title.index" var="index_title"/>
 <fmt:message bundle="${loc}" key="local.title.registration" var="registration_title"/>
 <fmt:message bundle="${loc}" key="local.title.about" var="about_title"/>
@@ -39,4 +40,6 @@
 <fmt:message bundle="${loc}" key="local.button.sign_out" var="sign_out_button"/>
 <fmt:message bundle="${loc}" key="local.button.registration" var="registration_button"/>
 <fmt:message bundle="${loc}" key="local.registration.register" var="register_button"/>
+<fmt:message bundle="${loc}" key="local.userMenu.profile" var="profile"/>
+<fmt:message bundle="${loc}" key="local.userMenu.my_orders" var="my_orders"/>
 </html>

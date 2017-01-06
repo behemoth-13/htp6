@@ -16,21 +16,26 @@
 						<div class="top_links">
 							<c:if test="${sessionScope.LOGIN == null }">
 							<form action="Controller" method="post">
-								<button class="button" name="cm" value="ul" type="submit">${sign_in_button}</button>
 								${login} <input type="text" maxlength="15" name="ul" size="15">
 								${password} <input type="password" maxlength="15" name="ua" size="15">
-								 / <a class="button" href="registration">${registration_button}</a>
+								<button class="button" name="cm" value="ul" type="submit">${sign_in_button}</button>
+								 / <a class="button" style="text-decoration: none;" href="registration">${registration_button}</a>
 							</form>
 							</c:if>
 							<c:if test="${sessionScope.LOGIN != null}">
 								<div style="display: inline-block;font-size: 32px;padding: 0 15px;">
-									<i class="fa fa-user"></i>
+									<a href="office"><i class="fa fa-user"></i></a>
 								</div>
 								<div style="display: inline-block;">
-									${hello}, <a class="button" href="registration">${sessionScope.LOGIN}</a>
+									${hello}, 
+									<div class="top_links">
+										<a href="office">${sessionScope.LOGIN}</a>
+									</div>
 								</div>
 								<div style="display: inline-block;">
-									
+									<form action="Controller" method="get">
+										<button class="button" name="cm" value="ue" type="submit">${sign_out_button}</button>
+									</form>
 								</div>
 							</c:if>
 						</div>
@@ -55,11 +60,16 @@
 			<div class="col-md-12">
 				<div class="row">
 					<a href="main" class="logo">ГрузБел</a>
-					<nav class="main_menu clearfix">
+					<nav class="menu clearfix">
 						<button class="main_menu_button hidden-md hidden-lg"><i class="fa fa-bars"></i></button>
 						<ul>
 							<li class="active"><a href="main">${to_main}</a></li>
-							<li><a href="#">${make_order}</a></li>
+							<!--  
+							<li>
+								<form action="Controller" method="get">
+									<button name="cm" value="oa" type="submit">${make_order}</button>
+								</form>
+							</li>-->
 							<li><a href="#">${autopark}</a></li>
 							<li><a href="#">${prices}</a></li>
 						</ul>
@@ -77,6 +87,7 @@
 							<div class="slide_item"><img src="images/park_1.jpg"></div>
 						</div>
 					</div>
+					<%@include file="../fragments/userMenu.jspf"  %>
 				</div>
 			</div>
 		</div>
