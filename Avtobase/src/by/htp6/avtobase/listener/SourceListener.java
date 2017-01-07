@@ -26,7 +26,6 @@ public class SourceListener implements ServletContextListener{
 
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
-		
 		SourceInit connectionPool = ConnectionPool.getInstance();
 		SourceInit daoFactory = DaoFactory.getInstance();
 		SourceInit serviceFactory = ServiceFactory.getInstance();

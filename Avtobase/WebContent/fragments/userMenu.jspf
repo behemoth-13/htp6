@@ -8,10 +8,10 @@
 </head>
 <body>
 	<c:if test="${sessionScope.LOGIN != null}">
-		<c:if test="${sessionScope.ROLE == 0}">
+		<c:if test="${sessionScope.ROLE == 0}"><!-- admin -->
 			admin
 		</c:if>
-		<c:if test="${sessionScope.ROLE == 1}">
+		<c:if test="${sessionScope.ROLE == 1}"><!-- user -->
 			<nav class="menu clearfix">
 				<button class="main_menu_button hidden-md hidden-lg"><i class="fa fa-bars"></i></button>
 				<ul>
@@ -21,21 +21,21 @@
 							<button name="cm" value="ou" type="submit">${my_orders}</button>
 						</form>
 					</li>
-					<li><a href="#">${my_orders}</a></li>
+					<li><a href="make_order">${make_order}</a></li>
 					<li><a href="#">${prices}</a></li>
 				</ul>
 			</nav>
 		</c:if>
-		<c:if test="${sessionScope.ROLE == 2}">
+		<c:if test="${sessionScope.ROLE == 2}"><!-- guest -->
 			guest
 		</c:if>
-		<c:if test="${sessionScope.ROLE == 3}">
+		<c:if test="${sessionScope.ROLE == 3}"><!-- manager -->
 			manager
 		</c:if>
-		<c:if test="${sessionScope.ROLE == 4}">
+		<c:if test="${sessionScope.ROLE == 4}"><!-- driver -->
 			driver
 		</c:if>
-		<c:if test="${sessionScope.ROLE == 5}">
+		<c:if test="${sessionScope.ROLE == 5}"><!-- banned user -->
 			banned user
 		</c:if>
 	</c:if>

@@ -64,7 +64,7 @@
     <url-pattern>/office</url-pattern>
   </servlet-mapping>
   
-    <servlet>
+  <servlet>
     <servlet-name>profile</servlet-name>
     <jsp-file>/pages/profile.jsp</jsp-file>
   </servlet>
@@ -72,6 +72,16 @@
   <servlet-mapping>
     <servlet-name>profile</servlet-name>
     <url-pattern>/profile</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>make_order</servlet-name>
+    <jsp-file>/pages/makeOrder.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>make_order</servlet-name>
+    <url-pattern>/make_order</url-pattern>
   </servlet-mapping>
   
   <listener>

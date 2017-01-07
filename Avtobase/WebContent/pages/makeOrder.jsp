@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@include file="../fragments/localization.jspf" %>
-<%@include file="../fragments/common.jspf"  %>
+<%@include file="../fragments/localization.jspf"%> <!-- localization -->
+<%@include file="../fragments/common.jspf"%>
 <!DOCTYPE html PUBLIC>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>${registration_title}</title>
-	</head>
-	<body>
-		<%@include file="../fragments/header.jspf"  %>
-		<script type="text/javascript" src="js/validationRegistration.js"></script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>${makeOrder_title}</title>
+</head>
+<body>
+	<%@include file="../fragments/header.jspf"  %>
+	<script type="text/javascript" src="js/validationRegistration.js"></script>
 			<div class="container">
 				<div class="col-md-12">
 					<div class="row" align="center">
@@ -45,6 +45,6 @@
 					</div>
 				</div>
 			</div>
-		<%@include file="../fragments/footer.jspf" %>
-	</body>
+	<%@include file="../fragments/footer.jspf" %>
+</body>
 </html>
