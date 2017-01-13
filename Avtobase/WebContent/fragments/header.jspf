@@ -24,12 +24,12 @@
 							</c:if>
 							<c:if test="${sessionScope.LOGIN != null}">
 								<div style="display: inline-block;font-size: 32px;padding: 0 15px;">
-									<a href="office"><i class="fa fa-user"></i></a>
+									<a href="profile"><i class="fa fa-user"></i></a>
 								</div>
 								<div style="display: inline-block;">
 									${hello}, 
 									<div class="top_links">
-										<a href="office">${sessionScope.LOGIN}</a>
+										<a href="profile">${sessionScope.LOGIN}</a>
 									</div>
 								</div>
 								<div style="display: inline-block;">

@@ -217,3 +217,18 @@ section.order {
 .blog_item img {
 	max-width: 100%;
 }
+.table {
+	border-collapse: collapse;
+}
+.table th{
+	padding: 5px;
+	border: 1px solid black;
+}
+.table tr{
+	padding: 5px;
+	border: 1px solid black;
+}
+.table td{
+	padding: 5px;
+	border: 1px solid black;
+}

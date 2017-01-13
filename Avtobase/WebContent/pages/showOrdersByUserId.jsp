@@ -10,59 +10,52 @@
 </head>
 <body>
 	<%@include file="../fragments/header.jspf"  %>
-in show ordersbyid
-	<%@include file="../fragments/footer.jspf" %>
-<!-- <table class="table table-hover">
-  		<thead>
-      		<tr>
-        		<th>id</th>
-        		<th>Name</th>
-        		<th>Part of series</th>
-         		<th>Price</th>
-        		<th>Date release</th>
-        		<th>Genre</th>
-   	<th>Site</th> 
-        		<th>Status</th>   
-        		<th>Action</th>		
-      		</tr>
-    	</thead>
-		<c:forEach items="${sessionScope.game_list}" var = "game" >   
-  			<tbody>
-   				<tr>
-		        	<td>${game.id}</td>
-		        	<td>${game.name}</td>
-		        	<td>${game.partOfseries}</td>
-		      		<td>${game.price}$</td>
- 		        	<td>${game.dataRelease}</td> 
-		        	<td>${game.ganre}</td>
-		        	<td>
-		   				<c:if test="${game.status == true }">
-		   					Active
-		   				</c:if>
-		   				
-		   				<c:if test="${game.status ==  false}">
-		   					Not active
-		   				</c:if>
-		   		 	</td>
-		       
-		        	<td>
-		        		<div class = "row"> 		        	
-			        		<form action="Controller" method="get">
-			        			<input type="hidden" name="command" value="edit_game"/>
-			        			<a data-toggle="tooltip" title="Edit game" data-placement="bottom"><button type="submit" name="game_id" value="${game.id}" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span></button></a>  
-			        		</form>
-			        		
-			        		<form action="Controller" method="get"> 
-			        			<input type="hidden" name="command" value="remove_game"/>
-				   				<a data-toggle="tooltip" title="Active/Not active" data-placement="bottom"><button type="submit" name="game_id"  value="${game.id}" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></button></a>
-				    		</form>
-		        		
-		        		</div>
-
-			    	</td>
-      			</tr>
-    		</tbody>
-		</c:forEach>
-  	</table> -->
+	<section class="main_content">
+		<div class="container">
+			<div class="col-md-12">
+				<div class="content-text">
+					<h2>${your_orders}</h2>
+					<table class="table">
+			      		<tr>
+			        		<th>id</th>
+			        		<th>${weight}</th>
+			        		<th>${capacity}</th>
+			         		<th>${distance}</th>
+			         		<th>${creation_date}</th>
+			         		<th>${status_order}</th>
+			         		<th>${date_status}</th>
+			      		</tr>
+						<c:forEach items="${requestScope.LIST_ORDERS}" var = "order" >   
+				   			<tr>
+				   			<td>${order.id}</td>
+				        	<td>${order.weight}</td>
+				        	<td>${order.capacity}</td>
+				      		<td>${order.distance}</td>
+				      		<td>${order.creationTime}</td> 
+				      		<td>
+				   				<c:if test="${order.statusOrder == 0}">
+				   				${order_has_come}
+				   				</c:if>
+				   				<c:if test="${order.statusOrder == 1}">
+				   				${order_proceed_disp}
+				   				</c:if>
+				   				<c:if test="${order.statusOrder == 2}">
+				   				${order_in_work}
+				   				</c:if>
+				   				<c:if test="${order.statusOrder == 3}">
+				   				${order_completed}
+				   				</c:if>
+				   				<c:if test="${order.statusOrder == 4}">
+				   				${order_rejected}
+				   				</c:if>
+				   		 	</td>
+				        	<td>${order.timeStatusOrder}</td> 
+						</c:forEach>
+			  		</table>
+				</div>
+			</div>
+		</div>
+	</section>
+<%@include file="../fragments/footer.jspf" %>
 </body>
 </html>
